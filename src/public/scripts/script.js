@@ -29,7 +29,7 @@ $(document).ready(function(){
 
   function render () {
 
-    if (limit == '' || $("#item-menu option:selected").val() == 'choose') {
+    if (limit == '' || $("#item-menu option:selected").val() == 'choose' || parseInt(limit) >= 200) {
       return;
     }
 

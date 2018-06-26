@@ -20,8 +20,7 @@ app.get('/', (req, res) => {
     const letter = req.query.item;
 
     if (limit > 200) {
-      res.status(451);
-      return res.end();
+      return res.send({error: true});
     }
     
     var items = getItems(limit, letter);
