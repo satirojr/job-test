@@ -13,9 +13,9 @@ $(document).ready(function(){
   });
 
   var currentPage = 0;
-  var limit = $(".items-quantity input").val();
-  var pages = Math.ceil(limit/3);
-  var item = $("#item-menu option:selected").val();
+  var limit;
+  var pages;
+  var item;
 
   function fetch () {
     return new Promise((resolve, reject) => {
