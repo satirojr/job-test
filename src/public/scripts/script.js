@@ -35,8 +35,8 @@ $(document).ready(function(){
 
     let request = fetch();
     request
-      .then((result) => {
-        $(".obj3").prepend(result);
+      .then((html) => {
+        $(".obj3").prepend(html);
       })
       .catch(() => {
         console.log("Some problema occured!");
