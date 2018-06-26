@@ -17,30 +17,22 @@ $(document).ready(function(){
   var pages;
   var item;
 
-  function fetch () {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", `/?page=${currentPage+1}&limit=${limit}&item=${item}`);
-      xhr.onload = () => resolve(xhr.responseText);
-      xhr.onerror = () => reject(xhr.statusText);
-      xhr.send();
-    });
-  }
-
   function render () {
 
     if (limit == '' || $("#item-menu option:selected").val() == 'choose' || parseInt(limit) >= 200) {
       return;
     }
 
-    let request = fetch();
-    request
-      .then((html) => {
+    $.ajax({
+      url: `/?page=${currentPage+1}&limit=${limit}&item=${item}`
+    })
+      .done((html) => {
         $(".obj3").prepend(html);
       })
-      .catch(() => {
+      .fail(() => {
         console.log("Some problema occured!");
       });
+
   }
 
   render();
